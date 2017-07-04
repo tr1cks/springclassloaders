@@ -12,6 +12,7 @@
         <module>core</module>
         <module>plugina</module>
         <module>pluginb</module>
+        <module>pluginc</module>
         <module>oneclasspath</module>
         <module>mutlipleclasspaths</module>
     </modules>

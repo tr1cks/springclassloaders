@@ -19,11 +19,13 @@ public class MultipleClasspathMain {
         contexts.addAll(findContexts(MultipleClasspathMain.class.getClassLoader()));
         contexts.addAll(findContexts(getPluginClassLoader("plugina\\target\\plugina-1.0-SNAPSHOT.jar")));
         contexts.addAll(findContexts(getPluginClassLoader("pluginb\\target\\pluginb-1.0-SNAPSHOT.jar")));
+        contexts.addAll(findContexts(getPluginClassLoader("pluginc\\target\\pluginc-1.0-SNAPSHOT.jar")));
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(contexts.toArray(new Class[contexts.size()]));
         SomeServicesManager servicesManager = context.getBean(SomeServicesManager.class);
 
-        Set<String> expected = new HashSet<>(asList("CoreSomeService", "PluginASomeService", "PluginBSomeService"));
+        Set<String> expected = new HashSet<>(asList("CoreSomeService", "PluginASomeService",
+                                                    "PluginBSomeService", "PluginCSomeService"));
         if(!expected.equals(servicesManager.getServicesNames())) {
             throw new IllegalStateException(servicesManager.getServicesNames().toString());
         }

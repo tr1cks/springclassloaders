@@ -1,10 +1,10 @@
 package spring.pluginb;
 
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 import spring.core.Context;
 
-@Service
+@Configuration
 @ComponentScan(
     basePackages = {"spring.pluginb"}
 )
