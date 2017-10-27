@@ -1,10 +1,10 @@
-package spring.pluginc;
+package spring.plugind;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import spring.core.MainService;
 import spring.core.SomeService;
 
-public class PluginCSomeService implements SomeService {
+public class PluginDSomeService implements SomeService {
     private MainService mainService;
 
     @Override public String getName() {

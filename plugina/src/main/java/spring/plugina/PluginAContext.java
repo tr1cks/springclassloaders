@@ -1,13 +1,15 @@
 package spring.plugina;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.core.Context;
+import spring.core.SomeService;
 
 @Configuration
-@ComponentScan(
-    basePackages = {"spring.plugina"}
-)
 public class PluginAContext implements Context {
 
+    @Bean
+    public SomeService pluginASomeService() {
+        return new PluginASomeService();
+    }
 }

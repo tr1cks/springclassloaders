@@ -1,12 +1,16 @@
 package spring.pluginb;
 
-import org.springframework.stereotype.Service;
+import spring.core.MainService;
 import spring.core.SomeService;
 
-@Service
 public class PluginBSomeService implements SomeService {
+    private final MainService mainService;
+
+    public PluginBSomeService(MainService mainService) {
+        this.mainService = mainService;
+    }
 
     @Override public String getName() {
-        return getClass().getSimpleName();
+        return mainService.getName() + '#' + getClass().getSimpleName();
     }
 }

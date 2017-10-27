@@ -1,12 +1,13 @@
 package spring.plugina;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import spring.core.MainService;
 import spring.core.SomeService;
 
-@Service
 public class PluginASomeService implements SomeService {
+    @Autowired private MainService mainService;
 
     @Override public String getName() {
-        return getClass().getSimpleName();
+        return mainService.getName() + '#' + getClass().getSimpleName();
     }
 }

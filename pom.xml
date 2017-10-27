@@ -13,12 +13,14 @@
         <module>plugina</module>
         <module>pluginb</module>
         <module>pluginc</module>
+        <module>plugind</module>
         <module>oneclasspath</module>
         <module>mutlipleclasspaths</module>
+        <module>workaround</module>
     </modules>
 
     <description>This project illustrates Spring problem with context loading from parts with different classloaders.
-                 Google Guice definitely can do it. Looks like Spring tries to do it in classloader, that create
+                 Google Guice definitely can do it. Looks like Spring tries to do it in single classloader, that created
                  AnnotationConfigApplicationContext.</description>
 
     <properties>

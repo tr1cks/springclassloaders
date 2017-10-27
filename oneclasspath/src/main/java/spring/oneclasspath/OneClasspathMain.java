@@ -20,8 +20,10 @@ public class OneClasspathMain {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(contexts.toArray(new Class[contexts.size()]));
         SomeServicesManager servicesManager = context.getBean(SomeServicesManager.class);
 
-        Set<String> expected = new HashSet<>(asList("CoreSomeService", "PluginASomeService",
-                                                    "PluginBSomeService", "PluginCSomeService"));
+        Set<String> expected = new HashSet<>(asList("MainService#CoreSomeService", "MainService#PluginASomeService",
+                                                    "MainService#PluginBSomeService", "MainService#PluginCSomeService",
+                                                    "MainService#PluginDSomeService", "MainService#PluginDSubSomeService",
+                                                    "MainService#PluginDSubSubSomeService"));
         if(!expected.equals(servicesManager.getServicesNames())) {
             throw new IllegalStateException(servicesManager.getServicesNames().toString());
         }
